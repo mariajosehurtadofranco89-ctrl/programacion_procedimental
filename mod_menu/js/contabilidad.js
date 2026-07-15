@@ -7,17 +7,81 @@ var Concepto = document.getElementById("Concepto");
 var Guardar = document.getElementById("Guardar");
 
 
-function ValidarDatos(ventas) {
-    if (ventas == '' && fecha == '' && Ingresos == '' && Egresos == '' && Valor == '' && Concepto == '' && Guardar == '') {
-        console.log("los campos estan vacios")
-    }
-    else {
-        if (fecha == /[a-zA-z]/) {
-            console.log('los datos son incorrectos')
-        }
+function validardatos() {
+    if(ventas== '' && fechas == ''&& ingresos == ''&& egresos == ''&& Valor == ''&& concepto == '' && Guardar ==  ''){
+        console.log("los campos estan validos")
 
-        if (Ingresos == /[a-zA-z]/) {
+    if (/^[a-zA-Z]+$/.test(fecha)) {
 
-        }
+        console.log("fecha debe contener numeros");
+
+        Swal.fire({
+
+            title: "Fecha debe contener números",
+
+            icon: "error"
+
+        });
+
+        return;
+
     }
+
+    if (/^[a-zA-Z]+$/.test(ingresos)) {
+
+        console.log("Los datos son incorrectos");
+
+        Swal.fire({
+
+            title: "Los ingresos deben contener números",
+
+            icon: "error"
+
+        });
+
+        return;
+
+    }
+
+    if (/^[a-zA-Z]+$/.test(egresos)) {
+
+        console.log("Los datos son incorrectos");
+
+        Swal.fire({
+
+            title: "Los egresos deben contener números",
+
+            icon: "error"
+
+        });
+
+        return;
+
+    }
+
+    if (/^[a-zA-Z]+$/.test(concepto)) {
+
+        console.log("Concepto debe contener texto");
+
+        Swal.fire({
+
+            title: "El concepto debe contener texto",
+
+            icon: "error"
+
+        });
+
+        return;
+
+    } 
+
+
+    
+}else {
+    alert("rgdg")
 }
+}
+
+
+
+document.getElementById("btnguardar").onclick = validardatos;
